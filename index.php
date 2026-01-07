@@ -214,14 +214,14 @@ function isJson($string) {
                 $ctr = 0;
                 foreach($congress_json->congress as $congress){ ?> 
                     <?php if(!empty($congress->members)){ ?>
-                        <h1 class="legislation_title" id="legislation_title_<?php echo $ctr; ?>"><?php echo $congress->legislative_period; ?></h1>
+                        <h1 class="legislation_title" id="legislation_title_<?php echo $ctr; ?>" style="visibility: hidden;"><?php echo $congress->legislative_period; ?></h1>
                         <div class="legislation">
                             <div class='wrapper'>
                                 <?php 
                                 if($congress->members){
                                     foreach($congress->members as $member){
                                         echo '<div class="name">'.$member->name.'</div>';
-                                        echo '<div class="job">'. (!empty($member->province) ? $member->province . (!empty($member->district) ? ', ' . $member->district : '') : (!empty($member->party_list) ? $member->party_list . ' Party-List' : '')) .'</div>';
+                                        echo '<div class="job">'. (!empty($member->province) ? $member->province . (!empty($member->district) ? ', ' . $member->district : '') : (!empty($member->party_list) ? $member->party_list . ' Party-List' : (!empty($member->sectoral) ? $member->sectoral : ''))) .'</div>';
                                     }
                                 }
                                 ?>
@@ -241,7 +241,7 @@ function isJson($string) {
                 var $content = $('.contents');
                 var itemHeight = $content.children().first().outerHeight(); // Assuming all items have same height
                 var scrollSpeed = 2; // Adjust as needed (milliseconds per scroll step)
-                var scrollAmount = 1; // Adjust as needed (pixels per scroll step)
+                var scrollAmount = 10; // Adjust as needed (pixels per scroll step)
                 // Clone items for seamless looping
                 $content.children().clone().appendTo($content);
                 var test = '';
