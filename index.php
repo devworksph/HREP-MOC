@@ -241,7 +241,7 @@ function isJson($string) {
                 var $content = $('.contents');
                 var itemHeight = $content.children().first().outerHeight(); // Assuming all items have same height
                 var scrollSpeed = 2; // Adjust as needed (milliseconds per scroll step)
-                var scrollAmount = 10; // Adjust as needed (pixels per scroll step)
+                var scrollAmount = 1; // Adjust as needed (pixels per scroll step)
                 // Clone items for seamless looping
                 $content.children().clone().appendTo($content);
                 var test = '';
